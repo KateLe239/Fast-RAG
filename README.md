@@ -11,3 +11,18 @@
 ```bash
 pip install pylate fast-plaid
 ```
+
+После этого можно начать использование с помощью запуска небольшого кода!
+```python
+import YourIndex
+
+documents_path = 'war_and_peace' #укажите путь до нужных документов
+index_path = 'index' #укажите путь, куда сохранять индекс
+
+my_index = YourIndex(documents_path, index_path)
+
+questions = ["Who is Pierre?", "Where did Rostov live?"] #вопросы по содержимому документов на ваш вкус
+my_index.get_answers(questions)
+```
+После создания индекса вызывать команду get_answers() можно неограниченное число раз.
+
