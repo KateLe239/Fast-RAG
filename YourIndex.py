@@ -74,8 +74,8 @@ class YourIndex():
     self.model_for_ans = pipeline("question-answering", model="bert-large-uncased-whole-word-masking-finetuned-squad")
 
 
-  def get_suitable_docs(self, questions: list[str], k: int):
-    """преобразование запросов и поиск соотвествий по индексу
+  def get_ranking_docs(self, questions: list[str], k: int):
+    """преобразование запросов и поиск соотвествий с помощью созданного индекса (ранжирование)
     возвращает лист листов, где подлисты соотвествуют одному из вопросов
 
       можно аназилировать скоры чтобы понять, насколько ответ релевантен
@@ -110,7 +110,7 @@ class YourIndex():
 
     может пользователю это вообще не надо, может он хочет просто отрывки текста?
     """
-    suitable_docs = self.get_suitable_docs(questions, k)
+    suitable_docs = self.get_ranking_docs(questions, k)
 
     for i in range(len(questions)):
       context = ""
